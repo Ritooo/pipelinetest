@@ -2,7 +2,7 @@ stages:
   - name: Build
     steps:
       - runScriptConfig:
-          image: adoptopenjdk/openjdk11:alpine-jre
+          image: adoptopenjdk/maven-openjdk11
   - name: Publish
     steps:
       - publishImageConfig:
