@@ -29,7 +29,7 @@ spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
       containers:
-        - name: helloserver
+        - name: teslaserver
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           ports:
             - containerPort: 8080
