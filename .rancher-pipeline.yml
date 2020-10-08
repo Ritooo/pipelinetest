@@ -1,0 +1,15 @@
+stages:
+  - name: Build
+    steps:
+      - runScriptConfig:
+          image: adoptopenjdk/openjdk11:alpine-jre
+  - name: Publish
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
+  - name: Deploy
+    steps:
+      - applyYamlConfig:
+          path: ./.deployment.yaml

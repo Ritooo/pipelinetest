@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: teslaserver-service
+spec:
+  selector:
+    app: teslaserver
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-tesla
+  labels:
+    app: teslaserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teslaserver
+  template:
+    metadata:
+      labels:
+        app: teslaserver
+    spec:
+      imagePullSecrets:
+        - name: pipeline-docker-registry
+      containers:
+        - name: helloserver
+          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          ports:
+            - containerPort: 8080
