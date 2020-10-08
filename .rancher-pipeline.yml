@@ -6,7 +6,7 @@ stages:
   - name: Publish
     steps:
       - publishImageConfig:
-          dockerfilePath: ./Dockerfile
+          dockerfilePath: ${WORKSPACE}/./Dockerfile
           buildContext: .
           tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
   - name: Deploy
