@@ -91,7 +91,7 @@ local.properties
 .buildpath
 
 # sbteclipse plugin
-.target
+
 
 # TeXlipse plugin
 .texlipse
@@ -113,7 +113,8 @@ hs_err_pid*
 
 
 ### Maven template
-target/
+/target/*
+!/target/test.jar
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -157,4 +158,4 @@ buildNumber.properties
 /web-app/plugins
 
 # "temporary" build files
-/target
+
