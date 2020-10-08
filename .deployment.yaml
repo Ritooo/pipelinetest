@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: helloserver-service
+  name: teslaserver-service
 spec:
   selector:
     app: helloserver
@@ -13,18 +13,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-helloserver
+  name: example-teslaserver
   labels:
     app: helloserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helloserver
+      app: teslaserver
   template:
     metadata:
       labels:
-        app: helloserver
+        app: teslaserver
     spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
