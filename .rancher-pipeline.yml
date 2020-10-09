@@ -3,7 +3,6 @@ stages:
     steps:
       - runScriptConfig:
           image: adoptopenjdk/maven-openjdk11
-          memoryLimit: 3Gi
   - name: Publish
     steps:
       - publishImageConfig:
