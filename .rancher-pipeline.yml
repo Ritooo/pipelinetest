@@ -1,18 +1,17 @@
 stages:
   - name: Build
-    when:
-      branch: master
-      event: [ push ]
     steps:
       - runScriptConfig:
-          image: adoptopenjdk/maven-openjdk11
+          image: maven:3-jdk-7
+          shellScript: |-
+            mvn clean install
   - name: Publish
     steps:
       - publishImageConfig:
-          dockerfilePath: ./.Dockerfile
+          dockerfilePath: ./Dockerfile
           buildContext: .
-          tag: example-teslaserver:${CICD_EXECUTION_SEQUENCE}
+          tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
   - name: Deploy
     steps:
       - applyYamlConfig:
-          path: ./.deployment.yaml
+          path: ./deployment.yaml
