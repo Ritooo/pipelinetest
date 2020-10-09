@@ -29,7 +29,7 @@ spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
       containers:
-        - name: maven
+        - name: greenhouse
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           ports:
             - containerPort: 8080
