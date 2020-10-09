@@ -3,8 +3,6 @@ stages:
     steps:
       - runScriptConfig:
           image: adoptopenjdk/maven-openjdk11
-          shellScript: |-
-            mvn clean install
   - name: Publish
     steps:
       - publishImageConfig:
