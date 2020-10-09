@@ -30,6 +30,6 @@ spec:
         - name: pipeline-docker-registry
       containers:
         - name: tesla
-          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          image: example-teslaserver:${CICD_EXECUTION_SEQUENCE}
           ports:
             - containerPort: 8080

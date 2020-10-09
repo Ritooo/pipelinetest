@@ -1,5 +1,8 @@
 stages:
   - name: Build
+    when:
+      branch: master
+      event: [ push ]
     steps:
       - runScriptConfig:
           image: adoptopenjdk/maven-openjdk11
